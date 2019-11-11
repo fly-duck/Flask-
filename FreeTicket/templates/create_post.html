@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+
+            <div class="form-group">
+
+                {{ form.title.label(class="form-control-label") }}
+                {% if form.title.errors %}
+                    {{ form.title(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.title.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.title(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.content.label(class="form-control-label") }}
+                {% if form.content.errors %}
+                    {{ form.content(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.content.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.content(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                    <!-- CPP <input type="checkbox" value="cpp" name="mycheckbox">
+                    Python<input type="checkbox" value="python" name="mycheckbox">
+                    Others <input type="checkbox" value="others " name="mycheckbox"> -->
+                    {{ form.catagories.label(class="form-control-label") }}
+                    {% if form.catagories.errors %}
+                        {{ form.catagories(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.content.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.catagories(class="form-control form-control-lg") }}
+                    {% endif %}        
+                          
+  
+                    <!-- <script src="https://code.jquery.com/jquery-1.6.4.min.js"></script>
+                    <select class="form-control" id="SpaceAccommodation" name="YogaSpaceAccommodation">
+                        <option selected="selected" value="0">1-4</option>
+                        <option value="1">5-9</option>
+                        <option value="2">10-15</option>
+                        <option value="3">16-20</option>
+                        <option value="4">20+</option>
+                    </select>
+                    <div class="test"></div> -->
+            </div>
+
+<!-- 
+            <div class="form-group">
+
+     
+                    <select class="mdb-select md-form colorful-select dropdown-primary">
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                    <option value="4">Option 4</option>
+                    <option value="5">Option 5</option>
+                    </select>
+                    <label class="mdb-main-label">Blue select</label>
+
+            </div> -->
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+{% endblock content %}
